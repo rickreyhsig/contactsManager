@@ -48,10 +48,10 @@ function MyController($scope, $http) {
         return !$scope.q || re.test(obj.first_name) || re.test(obj.last_name);
         }
         else {var re = new RegExp($scope.q, 'i');
-        return !$scope.q || re.test(obj.first_name) || re.test(obj.last_name);}
+        return !$scope.q || re.test(obj.address) || re.test(obj.city) || re.test(obj.email) || re.test(obj.first_name) || re.test(obj.join_date) || re.test(obj.last_name) || re.test(obj.phone) || re.test(obj.state) || re.test(obj.zip);}
     };
 
-}
+}  
 
 function OtherController($scope) {
   $scope.pageChangeHandler = function(num) {
