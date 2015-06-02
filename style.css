@@ -23,20 +23,39 @@
   padding-left: 0px;
 }
 
+.label2 {
+  font-family: 'Oswald';
+  font-size: 12px;
+  font-weight: bold;
+  margin-left: 15px;
+}
+
 #conct{
   font-family: 'Oswald';
   font-size: 12px;
   font-weight: bold;
   color: black;
 }
-.contact-details{
+#contact-details{
   border: 1px solid transparent;
   border-color: #ddd;
+  display: none;
 }
 
-.panel.panel-default{
-  /*width: 60%;*/
+.form-control {
+  display: inline;
 }
+
+.form-control.search {
+  width: 24%;
+  margin-left: 16px;
+}
+
+.form-control.pageSize {
+  width: 14%;
+  margin-left: 13px;
+}
+
 
 #cntctDetailsTitle{
   font-family: 'Oswald';

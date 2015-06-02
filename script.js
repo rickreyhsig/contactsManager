@@ -26,7 +26,10 @@ function MyController($scope, $http) {
     };
 
     $scope.showDetails = function(contact){
-      $scope.selectedContact = contact;
+        $scope.selectedContact = contact;
+    }
+    $scope.showContactDetails = function(){
+        document.getElementById('contact-details').style.display = 'block';
     }
 
 }

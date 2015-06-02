@@ -17,42 +17,34 @@
 <body>
   <div class="container">
 
-
-    <div class="row">
-
-
-      <div class="col-lg-8">
-
-
         <div ng-controller="MyController" class="my-controller">
           <h1 id="pageTitle">Contacts</h1>
+          <div class=".col-md-4">             
+              <input ng-model="q" id="search" class="form-control" placeholder="Filter text">
+          </div> 
 
+          <br>
 
           <div class="row">
-            <div class="col-xs-12">
-            </div>
-            <div class="col-xs-4">             
-              <input ng-model="q" id="search" class="form-control" placeholder="Filter text">
-            </div>
 
-            <label for="search">Search by:</label>
-              <select ng-model="stateFilter">
+             <label class="label2" for="search">Search by:</label>
+              <select class="form-control search" ng-model="stateFilter">
                 <option value='firstOrlast'>First/Lastname </option> 
                 <option value='state'>State</option>
               </select>
 
-            <div class="col-xs-4">
-              <label for="search">Items per page:</label>
+              <label class="label2" for="search">Items per page:</label>
 
-              <select ng-model="pageSize" convert-to-number>
+              <select class="form-control pageSize" ng-model="pageSize" convert-to-number>
                 <option value="10">10</option>
                 <option value="20">20</option>
                 <option value="50">50</option>
               </select>
 
-            </div>
           </div>
+
           <br>
+
           <div class="panel panel-default">
             <div class="panel-body">
 
@@ -69,34 +61,12 @@
               </tbody>
             </table>
 
-            <div dir-paginate="contact in contacts | filter:searchFilter |itemsPerPage: pageSize" ng-click="showDetails(contact)" current-page="currentPage" id="conct" class=".col-md-1"> {{ contact.first_name }} --- {{ contact.last_name }} ---  {{ contact.state }} </div>
-
-
-            </div>
-
-
-
+            <div dir-paginate="contact in contacts | filter:searchFilter |itemsPerPage: pageSize" ng-click="showDetails(contact);showContactDetails()" current-page="currentPage" id="conct" class=".col-md-1"> {{ contact.first_name }} --- {{ contact.last_name }} ---  {{ contact.state }} </div>
 
           </div>
 
-          <!--<div class="contact-details">
+          <div id="contact-details" ng-class="{ 'hidden': ! showDetails }">
             <p id="cntctDetailsTitle">Contact Details</p>
-            //<span id="cntctDetailsTest">Test</span> 
-            Address<p id="cntctDetails">Address {{ selectedContact.address }}</p>
-            <p id="cntctDetails">City {{ selectedContact.city }}</p>
-            <p id="cntctDetails">Email {{ selectedContact.email }}</p>
-            <p id="cntctDetails">First Name {{ selectedContact.first_name }}</p>
-            <p id="cntctDetails">Date Joined{{ selectedContact.join_date }}</p>
-            <p id="cntctDetails">Last Name {{ selectedContact.last_name }}</p>
-            <p id="cntctDetails">Phone {{ selectedContact.phone }}</p>
-            <p id="cntctDetails">State {{ selectedContact.state }}</p>
-            <p id="cntctDetails">Zip {{ selectedContact.zip }}</p>
-          </div> -->
-
-
-          <div class="contact-details">
-            <p id="cntctDetailsTitle">Contact Details</p>
-            <!--<span id="cntctDetailsTest">Test</span> -->
             <table id="cntcDetTabl" class="table table-striped table-bordered table-hover table-condensed table-responsive">
             <tr id="cntctDetails"> <td>Address</td> <td>{{ selectedContact.address }}</td>
             <tr id="cntctDetails"> <td>City</td> <td>{{ selectedContact.city }}</td>
@@ -107,27 +77,12 @@
             <tr id="cntctDetails"> <td>Phone</td> <td>{{ selectedContact.phone }}</td>
             <tr id="cntctDetails"> <td>State</td> <td>{{ selectedContact.state }}</td>
             <tr id="cntctDetails"> <td>Zip</td> <td>{{ selectedContact.zip }}</td>
-
-            <!--<p id="cntctDetails">City {{ selectedContact.city }}</p>
-            <p id="cntctDetails">Email {{ selectedContact.email }}</p>
-            <p id="cntctDetails">First Name {{ selectedContact.first_name }}</p>
-            <p id="cntctDetails">Date Joined{{ selectedContact.join_date }}</p>
-            <p id="cntctDetails">Last Name {{ selectedContact.last_name }}</p>
-            <p id="cntctDetails">Phone {{ selectedContact.phone }}</p>
-            <p id="cntctDetails">State {{ selectedContact.state }}</p>
-            <p id="cntctDetails">Zip {{ selectedContact.zip }}</p>-->
           </table>
           </div>
 
-
         </div>
 
-
-
-
-
         <div ng-controller="OtherController" class="other-controller">
-          <!--<small>this is in "OtherController"</small>-->
           <div class="text-center">
           <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="dirPagination.tpl.html"></dir-pagination-controls>
           </div>
@@ -137,68 +92,8 @@
   </div>
   <script src='angular-route/angular-route.min.js'></script>
   <script src='angular-resource/angular-resource.min.js'></script>
-  <script src='routeController.js'></script>
   <script src='filter.js'></script>
-  <script> contact-details.style.display = 'none'; // hide</script>
 
 </body>
 
 </html>
-
-
-
-              <!--<label for="search">Filter by State</label>
-
-              <select ng-model="stateFilter">
-                  <option value="AL">AL</option>
-                  <option value="AK">AK</option>
-                  <option value="AZ">AZ</option>
-                  <option value="AR">AR</option>
-                  <option value="CA">CA</option>
-                  <option value="CO">CO</option>
-                  <option value="CT">CT</option>
-                  <option value="DE">DE</option>
-                  <option value="DC">DC</option>
-                  <option value="FL">FL</option>
-                  <option value="GA">GA</option>
-                  <option value="HI">HI</option>
-                  <option value="ID">ID</option>
-                  <option value="IL">IL</option>
-                  <option value="IN">IN</option>
-                  <option value="IA">IA</option>
-                  <option value="KS">KS</option>
-                  <option value="KY">KY</option>
-                  <option value="LA">LA</option>
-                  <option value="ME">ME</option>
-                  <option value="MD">MD</option>
-                  <option value="MA">MA</option>
-                  <option value="MI">MI</option>
-                  <option value="MN">MN</option>
-                  <option value="MS">MS</option>
-                  <option value="MO">MO</option>
-                  <option value="MT">MT</option>
-                  <option value="NE">NE</option>
-                  <option value="NV">NV</option>
-                  <option value="NH">NH</option>
-                  <option value="NJ">NJ</option>
-                  <option value="NM">NM</option>
-                  <option value="NY">NY</option>
-                  <option value="NC">NC</option>
-                  <option value="ND">ND</option>
-                  <option value="OH">OH</option>
-                  <option value="OK">OK</option>
-                  <option value="OR">OR</option>
-                  <option value="PA">PA</option>
-                  <option value="RI">RI</option>
-                  <option value="SC">SC</option>
-                  <option value="SD">SD</option>
-                  <option value="TN">TN</option>
-                  <option value="TX">TX</option>
-                  <option value="UT">UT</option>
-                  <option value="VT">VT</option>
-                  <option value="VA">VA</option>
-                  <option value="WA">WA</option>
-                  <option value="WV">WV</option>
-                  <option value="WI">WI</option>
-                  <option value="WY">WY</option>
-              </select> -->
