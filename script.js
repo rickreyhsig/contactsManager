@@ -24,6 +24,7 @@ function MyController($scope, $http) {
         else {var re = new RegExp($scope.q, 'i'); // Full text filter
         return !$scope.q || re.test(obj.address) || re.test(obj.city) || re.test(obj.email) || re.test(obj.first_name) || re.test(obj.join_date) || re.test(obj.last_name) || re.test(obj.phone) || re.test(obj.state) || re.test(obj.zip);}
     };
+    
 
 }  
 
