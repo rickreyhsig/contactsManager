@@ -5,7 +5,7 @@ function MyController($scope, $http) {
   $scope.currentPage = 1;
   $scope.pageSize = 10;
   //$scope.fields = [ 'address', 'city', 'email', 'first_name', 'join_date',  'last_name', 'phone', 'state', 'zip'];
-  $scope.fields = [ 'first_name', 'last_name', 'state'];
+  $scope.fields = [ 'name'];
 
   $http.get('data.json')
        .then(function(res){
@@ -34,11 +34,11 @@ function MyController($scope, $http) {
 
 }
 
-function OtherController($scope) {
+function PaginationController($scope) {
   $scope.pageChangeHandler = function(num) {
     console.log('going to page ' + num);
   };
 }
 
 myApp.controller('MyController', MyController);
-myApp.controller('OtherController', OtherController);
+myApp.controller('PaginationController', PaginationController);

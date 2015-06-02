@@ -2,6 +2,7 @@
 <html ng-app="myApp">
 
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Oswald">
   <title>Contacts </title>
 
@@ -52,7 +53,7 @@
               <thead>
                 <tr>
                     <th class='label' ng-repeat='field in fields'>
-                        {{ field | labelCase}} 
+                        {{ field | labelCase}}    
                     </th>
                 </tr>
               </thead>
@@ -61,7 +62,7 @@
               </tbody>
             </table>
 
-            <div dir-paginate="contact in contacts | filter:searchFilter |itemsPerPage: pageSize" ng-click="showDetails(contact);showContactDetails()" current-page="currentPage" id="conct" class=".col-md-1"> {{ contact.first_name }} --- {{ contact.last_name }} ---  {{ contact.state }} </div>
+            <div dir-paginate="contact in contacts | filter:searchFilter |itemsPerPage: pageSize" ng-click="showDetails(contact);showContactDetails()" current-page="currentPage" id="conct" class=".col-md-1"> {{ contact.first_name }}, {{ contact.last_name }} </div>
 
             </div>
           </div>
@@ -85,7 +86,7 @@
 
         </div>
 
-        <div ng-controller="OtherController" class="other-controller">
+        <div ng-controller="PaginationController" class="other-controller">
           <div class="text-center">
           <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="dirPagination.tpl.html"></dir-pagination-controls>
           </div>
@@ -100,3 +101,6 @@
 </body>
 
 </html>
+
+
+<!-- Pagination from https://github.com/michaelbromley/angularUtils/tree/master/src/directives/pagination -->
