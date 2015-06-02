@@ -63,7 +63,10 @@
 
             <div dir-paginate="contact in contacts | filter:searchFilter |itemsPerPage: pageSize" ng-click="showDetails(contact);showContactDetails()" current-page="currentPage" id="conct" class=".col-md-1"> {{ contact.first_name }} --- {{ contact.last_name }} ---  {{ contact.state }} </div>
 
+            </div>
           </div>
+
+        
 
           <div id="contact-details" ng-class="{ 'hidden': ! showDetails }">
             <p id="cntctDetailsTitle">Contact Details</p>
