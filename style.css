@@ -1,20 +1,55 @@
-/* Styles go here */
-.label {
-    font-family: 'Oswald';
-    font-size: 12px;
-    font-weight: bold;
-    color: green;
+/* Stylesheet */
+#pageTitle{
+  font-family: 'Oswald';
+  font-weight: bold;
+  color: #428bca;
 }
 
-#test {
-  width: 20px;
+#cntcDetTabl td {
+    border: 1px solid black;
+}
+
+#cntcDetTabl{
+  width: 50%; 
+  margin-left: 15px;
+
+}
+
+.label {
+  font-family: 'Oswald';
+  font-size: 12px;
+  font-weight: bold;
+  color: #428bca;
+  padding-left: 0px;
 }
 
 #conct{
+  font-family: 'Oswald';
+  font-size: 12px;
+  font-weight: bold;
+  color: black;
+}
+.contact-details{
+  border: 1px solid transparent;
+  border-color: #ddd;
+}
+
+.panel.panel-default{
+  /*width: 60%;*/
+}
+
+#cntctDetailsTitle{
+  font-family: 'Oswald';
+  font-size: 12px;
+  font-weight: bold;
+  color: #428bca;
+  padding-left: 15px;
+}
+
+#cntctDetails{
     font-family: 'Oswald';
     font-size: 12px;
-    font-weight: bold;
-    color: black;
+    padding-left: 15px;
 }
 
 .my-controller {
@@ -25,19 +60,4 @@
 .my-controller small {
   color: #c99;
 }
-.other-controller {
-  /*border: 1px solid #ccf;*/
-  padding: 5px;
-  margin: 3px;
-}
-.other-controller small {
-  color: #99c;
-}
-.third-controller {
-  border: 1px solid #cfc;
-  padding: 5px;
-  margin: 3px;
-}
-.third-controller small {
-  color: #9c9;
-}
+

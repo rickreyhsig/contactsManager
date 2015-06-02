@@ -31,25 +31,6 @@ function MyController($scope, $http) {
 
 }
 
-    /*function RouteController($routeProvider, $locationProvider) {
-        $routeProvider
-            //.when('/contacts', {
-            //    controller: 'ListController',
-            //    templateUrl: 'views/list.html'
-            //})
-            .when('/contact/:first_name', {
-                controller: 'SingleController',
-                templateUrl: 'views/single.html'
-            })
-            .otherwise({
-                redirectTo: '/contacts'   
-            });
-        $locationProvider.html5Mode(true);
-    };  */
-
-
-
-
 function OtherController($scope) {
   $scope.pageChangeHandler = function(num) {
     console.log('going to page ' + num);
