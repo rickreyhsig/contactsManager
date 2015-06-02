@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Oswald">
+    <title>Contacts </title>
+
+  <link data-require="bootstrap-css@3.1.1" data-semver="3.1.1" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+  <script data-require="angular.js@1.3.0" data-semver="1.3.0" src="https://code.angularjs.org/1.3.0/angular.js"></script>
+  <script data-require="jquery@*" data-semver="2.0.3" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+  <script data-require="bootstrap@3.1.1" data-semver="3.1.1" src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js"></script>
+  <script src="dirPagination.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div ng-controller="MyController" class="my-controller">
+          <h1>Contacts</h1>
+
+          <div class="row">
+            <div class="col-xs-4">
+            </div>
+            <div class="col-xs-4">
+              <label for="search">Search by:</label>
+    <select ng-model="stateFilter">
+        <option value='firstOrlast'>First/Lastname </option> 
+        <option value='state'>State</option>
+        <!--<option value='lastname'>both </option>-->
+    </select>
+             
+              <input ng-model="q" id="search" class="form-control" placeholder="Filter text">
+            </div>
+            <div class="col-xs-4">
+              <label for="search">Items per page:</label>
+
+              <select ng-model="pageSize" convert-to-number>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="50">50</option>
+              </select>
+
+            </div>
+          </div>
+          <br>
+          <div class="panel panel-default">
+            <div class="panel-body">
+
+            <table>
+              <thead>
+                <tr>
+                    <th class='label' ng-repeat='field in fields'>
+                        {{ field | labelCase}} 
+                    </th>
+                </tr>
+              </thead>
+              <tbody>
+
+              </tbody>
+            </table>
+
+          
+            <!--<div dir-paginate="contact in contacts | filter:getFilter() |itemsPerPage: pageSize" current-page="currentPage" id="conct" class=".col-md-1"> {{ contact.first_name }} --- {{ contact.last_name }} ---  {{ contact.state }} </div> -->
+
+            <div dir-paginate="contact in contacts | filter:searchFilter |itemsPerPage: pageSize" current-page="currentPage" id="conct" class=".col-md-1"> {{ contact.first_name }} --- {{ contact.last_name }} ---  {{ contact.state }} </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div ng-controller="OtherController" class="other-controller">
+          <!--<small>this is in "OtherController"</small>-->
+          <div class="text-center">
+          <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="dirPagination.tpl.html"></dir-pagination-controls>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src='filter.js'></script>
+</body>
+
+</html>
+
+
+
+              <!--<label for="search">Filter by State</label>
+
+              <select ng-model="stateFilter">
+                  <option value="AL">AL</option>
+                  <option value="AK">AK</option>
+                  <option value="AZ">AZ</option>
+                  <option value="AR">AR</option>
+                  <option value="CA">CA</option>
+                  <option value="CO">CO</option>
+                  <option value="CT">CT</option>
+                  <option value="DE">DE</option>
+                  <option value="DC">DC</option>
+                  <option value="FL">FL</option>
+                  <option value="GA">GA</option>
+                  <option value="HI">HI</option>
+                  <option value="ID">ID</option>
+                  <option value="IL">IL</option>
+                  <option value="IN">IN</option>
+                  <option value="IA">IA</option>
+                  <option value="KS">KS</option>
+                  <option value="KY">KY</option>
+                  <option value="LA">LA</option>
+                  <option value="ME">ME</option>
+                  <option value="MD">MD</option>
+                  <option value="MA">MA</option>
+                  <option value="MI">MI</option>
+                  <option value="MN">MN</option>
+                  <option value="MS">MS</option>
+                  <option value="MO">MO</option>
+                  <option value="MT">MT</option>
+                  <option value="NE">NE</option>
+                  <option value="NV">NV</option>
+                  <option value="NH">NH</option>
+                  <option value="NJ">NJ</option>
+                  <option value="NM">NM</option>
+                  <option value="NY">NY</option>
+                  <option value="NC">NC</option>
+                  <option value="ND">ND</option>
+                  <option value="OH">OH</option>
+                  <option value="OK">OK</option>
+                  <option value="OR">OR</option>
+                  <option value="PA">PA</option>
+                  <option value="RI">RI</option>
+                  <option value="SC">SC</option>
+                  <option value="SD">SD</option>
+                  <option value="TN">TN</option>
+                  <option value="TX">TX</option>
+                  <option value="UT">UT</option>
+                  <option value="VT">VT</option>
+                  <option value="VA">VA</option>
+                  <option value="WA">WA</option>
+                  <option value="WV">WV</option>
+                  <option value="WI">WI</option>
+                  <option value="WY">WY</option>
+              </select> -->
