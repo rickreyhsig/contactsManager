@@ -12,42 +12,16 @@ function MyController($scope, $http) {
           $scope.contacts = res.data;
         });
 
-
-  $scope.getFilter = function(obj) {
-    var filter = {};
-    if ($scope.stateFilter == 'firstOrlast'){
-        // Let fullNameFilter do the filtering
-        //var re = new RegExp($scope.q, 'i');
-        //return !$scope.q || re.test(obj.first_name) || re.test(obj.last_name);
-        //searchFilter
-        //console.log($scope.stateFilter);
-        return;
-    }
-    else if ($scope.stateFilter == 'state'){
-        //console.log($scope.stateFilter);
-        filter[$scope.stateFilter] = $scope.q;
-         }
-    return filter;
-    };   
-
     $scope.searchFilter = function (obj) {
-        //var filter = {};
-        //if ($scope.stateFilter == 'state'){
-        // Let fullNameFilter do the filtering
-        //var re = new RegExp($scope.q, 'i');
-        //return !$scope.q || re.test(obj.first_name) || re.test(obj.last_name);
-        //searchFilter
-        console.log($scope.stateFilter);
-        if ($scope.stateFilter == 'state') {
+        if ($scope.stateFilter == 'state') { // State filter
           var re = new RegExp($scope.q, 'i');
         return !$scope.q || re.test(obj.state);  
         }
-       // }
-        else if($scope.stateFilter == 'firstOrlast'){
+        else if($scope.stateFilter == 'firstOrlast'){ // Full name filter
         var re = new RegExp($scope.q, 'i');
         return !$scope.q || re.test(obj.first_name) || re.test(obj.last_name);
         }
-        else {var re = new RegExp($scope.q, 'i');
+        else {var re = new RegExp($scope.q, 'i'); // Full text filter
         return !$scope.q || re.test(obj.address) || re.test(obj.city) || re.test(obj.email) || re.test(obj.first_name) || re.test(obj.join_date) || re.test(obj.last_name) || re.test(obj.phone) || re.test(obj.state) || re.test(obj.zip);}
     };
 

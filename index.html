@@ -29,7 +29,6 @@
     <select ng-model="stateFilter">
         <option value='firstOrlast'>First/Lastname </option> 
         <option value='state'>State</option>
-        <!--<option value='lastname'>both </option>-->
     </select>
              
               <input ng-model="q" id="search" class="form-control" placeholder="Filter text">
@@ -61,9 +60,6 @@
 
               </tbody>
             </table>
-
-          
-            <!--<div dir-paginate="contact in contacts | filter:getFilter() |itemsPerPage: pageSize" current-page="currentPage" id="conct" class=".col-md-1"> {{ contact.first_name }} --- {{ contact.last_name }} ---  {{ contact.state }} </div> -->
 
             <div dir-paginate="contact in contacts | filter:searchFilter |itemsPerPage: pageSize" current-page="currentPage" id="conct" class=".col-md-1"> {{ contact.first_name }} --- {{ contact.last_name }} ---  {{ contact.state }} </div>
 
