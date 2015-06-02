@@ -16,11 +16,24 @@
 
 <body>
   <div class="container">
+
+
     <div class="row">
+
+
       <div class="col-lg-8">
+
+
         <div ng-controller="MyController" class="my-controller">
           <h1>Contacts</h1>
 
+
+        <div class="contact-details">
+          <p>{{ selectedContact.first_name }}</p>
+          <p>{{ selectedContact.city }}</p>
+          <p>{{ selectedContact.address }}</p>
+        </div>
+        
           <div class="row">
             <div class="col-xs-4">
             </div>
@@ -61,11 +74,20 @@
               </tbody>
             </table>
 
-            <div dir-paginate="contact in contacts | filter:searchFilter |itemsPerPage: pageSize" current-page="currentPage" id="conct" class=".col-md-1"> {{ contact.first_name }} --- {{ contact.last_name }} ---  {{ contact.state }} </div>
+            <div dir-paginate="contact in contacts | filter:searchFilter |itemsPerPage: pageSize" ng-click="showDetails(contact)" current-page="currentPage" id="conct" class=".col-md-1"> {{ contact.first_name }} --- {{ contact.last_name }} ---  {{ contact.state }} </div>
+
 
             </div>
+
+
           </div>
+
+
         </div>
+
+
+
+
 
         <div ng-controller="OtherController" class="other-controller">
           <!--<small>this is in "OtherController"</small>-->
@@ -76,6 +98,9 @@
       </div>
     </div>
   </div>
+  <script src='angular-route/angular-route.min.js'></script>
+  <script src='angular-resource/angular-resource.min.js'></script>
+  <script src='routeController.js'></script>
   <script src='filter.js'></script>
 </body>
 

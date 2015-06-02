@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['angularUtils.directives.dirPagination']);
+var myApp = angular.module('myApp', ['angularUtils.directives.dirPagination', 'ngRoute', 'ngResource']);
 
 function MyController($scope, $http) {
 
@@ -25,9 +25,30 @@ function MyController($scope, $http) {
         return !$scope.q || re.test(obj.address) || re.test(obj.city) || re.test(obj.email) || re.test(obj.first_name) || re.test(obj.join_date) || re.test(obj.last_name) || re.test(obj.phone) || re.test(obj.state) || re.test(obj.zip);}
     };
 
-    
+    $scope.showDetails = function(contact){
+      $scope.selectedContact = contact;
+    }
 
-}  
+}
+
+    /*function RouteController($routeProvider, $locationProvider) {
+        $routeProvider
+            //.when('/contacts', {
+            //    controller: 'ListController',
+            //    templateUrl: 'views/list.html'
+            //})
+            .when('/contact/:first_name', {
+                controller: 'SingleController',
+                templateUrl: 'views/single.html'
+            })
+            .otherwise({
+                redirectTo: '/contacts'   
+            });
+        $locationProvider.html5Mode(true);
+    };  */
+
+
+
 
 function OtherController($scope) {
   $scope.pageChangeHandler = function(num) {
