@@ -1,1 +1,1 @@
-# contactManage
+# ContactManager app using AngularJS

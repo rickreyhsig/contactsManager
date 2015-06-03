@@ -5,7 +5,7 @@ function MyController($scope, $http) {
   $scope.currentPage = 1;
   $scope.pageSize = 10;
   //$scope.fields = [ 'address', 'city', 'email', 'first_name', 'join_date',  'last_name', 'phone', 'state', 'zip'];
-  $scope.fields = [ 'name'];
+  $scope.fields = [ 'first_name'];
 
   $http.get('data.json')
        .then(function(res){
@@ -15,7 +15,7 @@ function MyController($scope, $http) {
     $scope.searchFilter = function (obj) {
         if ($scope.stateFilter == 'state') { // State filter
           var re = new RegExp($scope.q, 'i');
-        return !$scope.q || re.test(obj.state);  
+        return !$scope.q || re.test(obj.state);
         }
         else if($scope.stateFilter == 'firstOrlast'){ // Full name filter
         var re = new RegExp($scope.q, 'i');

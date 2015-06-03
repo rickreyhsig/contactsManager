@@ -10,7 +10,7 @@
 }
 
 #cntcDetTabl{
-  width: 50%; 
+  width: 100%; 
   margin-left: 15px;
 
 }
@@ -45,7 +45,7 @@
   color: #696969;
   opacity: 0.6;
 }
-  
+
 #contact-details{
   font-family: 'Oswald';
   font-size: 12px;
@@ -97,4 +97,3 @@
 .my-controller small {
   color: #c99;
 }
-
