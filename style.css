@@ -10,7 +10,7 @@
 }
 
 #cntcDetTabl{
-  width: 100%; 
+  width: 96%;
   margin-left: 15px;
 
 }
@@ -96,4 +96,25 @@
 }
 .my-controller small {
   color: #c99;
+}
+
+@media screen and (max-width: 700px) {
+  #cntcDetTabl {width: 95%;}
+}
+
+@media screen and (max-width: 700px) {
+  #cntcDetTabl {width: 92%;}
+}
+
+@media screen and (max-width: 520px) {
+  .pagination>li>a, .pagination>li>span { border: none; font-size: 11px;}
+}
+
+@media screen and (max-width: 500px) {
+  #cntcDetTabl {width: 92%;}
+}
+
+@media screen and (max-width: 400px) {
+  #cntcDetTabl {width: 90%;}
+  #cntctDetails td {font-size: 10px;}
 }
