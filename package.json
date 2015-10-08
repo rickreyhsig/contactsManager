@@ -1,0 +1,13 @@
+{
+  "name": "ng-contact-manager",
+  "description": "a really cool app",
+  "version": "1.0.0",
+  "engines": {
+    "node": "0.10.37"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ricky1477/contactsManager.git"
+  }
+}
+
